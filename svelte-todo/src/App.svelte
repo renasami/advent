@@ -1,30 +1,17 @@
 <script lang="ts">
-	export let name: string;
+	import Task from "./Task.svelte"
+	let title = "a"
+	console.log(title)
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+<h1>svelte todo</h1>
+<hr />
+<div>
+	<input bind:value={title}/>
+	<button>追加</button>
+	<ul>
+	<Task contents={title}/>
+	</ul>
+	<button>終了済みタスク削除</button>
+</div>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
