@@ -21,7 +21,9 @@
 	<button on:click={addTask}>追加</button>
 	<ul>
 	{#each $taskList as task }
-		<Task task={task}/>
+		{#if !task.done}
+			<Task task={task}/>
+		{/if}
 	{/each}
 	</ul>
 </div>

@@ -1,6 +1,4 @@
 <script lang="ts">
-import type { Task } from "svelte/internal";
-
     import {taskList} from "./stores"
     import type {TaskType} from "./types"
 

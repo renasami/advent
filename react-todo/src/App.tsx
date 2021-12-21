@@ -3,6 +3,7 @@ import Task from "./Task";
 import { TaskType } from "./types";
 
 function App() {
+  
   const [tasks, setTasks] = useState<TaskType[]>([]);
   const ref = useRef(null);
 
