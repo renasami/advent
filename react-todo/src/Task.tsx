@@ -8,7 +8,7 @@ type Props = TaskType & {
 
 const Task:React.FC<Props> = (props: Props) => {
     const ref = useRef(null);
-    const handleOnClick = () => {
+    const handleOnChange = () => {
         const newTasks = props.tasks.map((task,i) => {
             if (props.id !== i) return task
             return {
@@ -21,7 +21,7 @@ const Task:React.FC<Props> = (props: Props) => {
     }
     return ( 
         <li ref={ref} style={{display: "flex", margin:10}}>
-            <input type="checkbox" checked={props.done} onClick={handleOnClick}/>
+            <button onClick={handleOnChange}>削除</button>
             <p style={{margin: 0}}>{props.text}</p>
         </li>
     )

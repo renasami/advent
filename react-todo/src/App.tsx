@@ -9,19 +9,12 @@ function App() {
   const addTask = (ref: MutableRefObject<any>) => {
     if (!ref.current.value) return;
     const newTask: TaskType = {
-      id: tasks.length,
+      id: tasks.length > 0 ? tasks[tasks.length -1].id + 1 : 0,
       text: ref.current.value,
       done: false,
     };
     setTasks([...tasks, newTask]);
     ref.current.value = "";
-  };
-
-  const deleteTasks = () => {
-    const newTasks: TaskType[] = tasks.filter((task) => {
-      return !task.done;
-    });
-    setTasks(newTasks);
   };
 
   return (
@@ -31,16 +24,16 @@ function App() {
       <input type="text" placeholder="タスク入力" ref={ref} />
       <button onClick={() => addTask(ref)}>追加</button>
       <ul>
-        {tasks.map((task) => {
+        {tasks.map((task,i) => {
+          if (task.done) return null
           const props = {
             ...task,
             setTasks: setTasks,
             tasks: tasks,
           };
-          return <Task {...props} key={task.id} />;
+          return <Task {...props} key={i} />;
         })}
       </ul>
-      <button onClick={deleteTasks}>終了済みタスク削除</button>
     </>
   );
 }

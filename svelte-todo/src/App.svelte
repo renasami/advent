@@ -12,12 +12,6 @@
 		text = ""
 	}
 
-	const delteTask = () => {
-		const newTask = $taskList.filter((task) => !task.done)
-		console.log(newTask)
-		taskList.update(() => [...newTask])
-	}
-
 </script>
 
 <h1>svelte todo</h1>
@@ -30,6 +24,5 @@
 		<Task task={task}/>
 	{/each}
 	</ul>
-	<button on:click={delteTask}>終了済みタスク削除</button>
 </div>
 

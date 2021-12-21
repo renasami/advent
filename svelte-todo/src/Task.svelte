@@ -19,7 +19,7 @@ import type { Task } from "svelte/internal";
 </script>
 
 <li>
-    <input type="checkbox" checked={task.done} on:click={handleOnClick}>
+    <button on:click={handleOnClick}>削除</button>
     <p>{task.text}</p>
 </li>
 
